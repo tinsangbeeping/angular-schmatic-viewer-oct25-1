@@ -1,0 +1,27 @@
+<div class="app" *ngIf="!loading && project; else state">
+  <div class="sidebar">
+    <h3>Project</h3>
+    <div class="small">{{ project?.meta?.projectName }}</div>
+    <h4>Symbols</h4>
+    <ul>
+      <li *ngFor="let s of project!.sheets[0].symbols">
+        {{s.ref}} — {{s.value || s.libId}}
+      </li>
+    </ul>
+    <h4>Wires</h4>
+    <div>{{ project!.sheets[0].wires.length }} segments</div>
+    <h4>Net Labels</h4>
+    <div>{{ project!.sheets[0].netLabels?.length || 0 }}</div>
+    <hr/>
+    <p class="small">Drag symbols on the canvas. Wheel = Zoom, Right-drag = Pan.</p>
+  </div>
+  <div class="canvas-wrap">
+    <schematic-canvas [project]="project!"></schematic-canvas>
+  </div>
+</div>
+<ng-template #state>
+  <div style="padding:24px">
+    <div *ngIf="loading">Loading…</div>
+    <div *ngIf="!loading && error">{{error}}</div>
+  </div>
+</ng-template>
