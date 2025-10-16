@@ -1,0 +1,47 @@
+<div class="toolbar">
+  <button class="active">Select/Drag</button>
+  <span style="margin-left:auto" class="small">Right-drag = Pan • Wheel = Zoom</span>
+</div>
+<svg #svg
+     [attr.viewBox]="vb.x + ' ' + vb.y + ' ' + vb.w + ' ' + vb.h"
+     (wheel)="wheel($event)"
+     (mousedown)="mousedown($event)"
+     (mousemove)="mousemove($event)"
+     (mouseup)="mouseup($event)"
+     (contextmenu)="contextmenu($event)">
+  <!-- grid -->
+  <defs>
+    <pattern id="grid" x="0" y="0" width="5" height="5" patternUnits="userSpaceOnUse">
+      <path d="M 0 0 L 0 5 M 0 0 L 5 0" class="grid"></path>
+    </pattern>
+  </defs>
+  <rect [attr.x]="vb.x" [attr.y]="vb.y" [attr.width]="vb.w" [attr.height]="vb.h" fill="url(#grid)"></rect>
+
+  <!-- wires -->
+  <g>
+    <path *ngFor="let w of project.sheets[0].wires"
+          class="wire"
+          [attr.d]="wirePath(w)"/>
+  </g>
+
+  <!-- symbols (simple box placeholder; show ref/value) -->
+  <g>
+    <g *ngFor="let s of project.sheets[0].symbols"
+       class="symbol"
+       [attr.transform]="'translate(' + (s.x||0) + ',' + (s.y||0) + ') rotate(' + (s.rot||0) + ')'"
+       (mousedown)="startDrag(s, $event)"
+       (mousemove)="dragMove($event)"
+       (mouseup)="endDrag()">
+      <rect x="-5" y="-3" width="10" height="6" rx="1.2" ry="1.2" stroke="#d9e2ec" fill="#0f1724"></rect>
+      <text class="reftext" x="0" y="-4.2" text-anchor="middle">{{s.ref || s.libId}}</text>
+      <text class="value" x="0" y="6" text-anchor="middle">{{s.value || ''}}</text>
+    </g>
+  </g>
+
+  <!-- labels -->
+  <g *ngIf="project.sheets[0].netLabels">
+    <g *ngFor="let n of project.sheets[0].netLabels">
+      <text class="label" [attr.x]="n.x" [attr.y]="n.y">{{n.name}}</text>
+    </g>
+  </g>
+</svg>
