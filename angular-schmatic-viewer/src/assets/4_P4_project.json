@@ -1,0 +1,221 @@
+{
+  "meta": {
+    "projectName": "4_P4",
+    "units": "mm"
+  },
+  "grid": {
+    "step": 1.27,
+    "snap": true
+  },
+  "libraries": [],
+  "sheets": [
+    {
+      "id": "S1",
+      "title": "Sheet 1",
+      "symbols": [
+        {
+          "libId": "Library_rasberry_pi:Ground-GND_1",
+          "ref": "#PWR04",
+          "value": "GND",
+          "x": 107.95,
+          "y": 132.08,
+          "rot": 0.0,
+          "mirror": false,
+          "fields": {
+            "Footprint": "ProPrj_\u5c0f\u578b\u7b14-easyedapro:",
+            "Datasheet": "",
+            "Description": ""
+          }
+        },
+        {
+          "libId": "Amplifier_Operational:OPA1662DGK",
+          "ref": "U1",
+          "value": "OPA1662DGK",
+          "x": 96.52,
+          "y": 129.54,
+          "rot": 0.0,
+          "mirror": false,
+          "fields": {
+            "Footprint": "Package_SO:VSSOP-8_3x3mm_P0.65mm",
+            "Datasheet": "https://www.ti.com/lit/ds/symlink/opa1662.pdf",
+            "Description": "Dual Low-Power, Low-Noise, Low-Distortion, Bipolar-Input SoundPlus Audio Operational Amplifiers, VSSOP-8"
+          }
+        },
+        {
+          "libId": "Device:D_Capacitance",
+          "ref": "D1",
+          "value": "D_Capacitance",
+          "x": 90.17,
+          "y": 113.03,
+          "rot": 0.0,
+          "mirror": false,
+          "fields": {
+            "Footprint": "",
+            "Datasheet": "~",
+            "Description": "Variable capacitance diode"
+          }
+        },
+        {
+          "libId": "power:VCC",
+          "ref": "#PWR01",
+          "value": "VCC",
+          "x": 71.12,
+          "y": 106.68,
+          "rot": 0.0,
+          "mirror": false,
+          "fields": {
+            "Footprint": "",
+            "Datasheet": "",
+            "Description": "Power symbol creates a global label with name \"VCC"
+          }
+        },
+        {
+          "libId": "Device:R",
+          "ref": "R1",
+          "value": "R",
+          "x": 80.01,
+          "y": 123.19,
+          "rot": 0.0,
+          "mirror": false,
+          "fields": {
+            "Footprint": "",
+            "Datasheet": "~",
+            "Description": "Resistor"
+          }
+        },
+        {
+          "libId": "power:VCC",
+          "ref": "#PWR02",
+          "value": "VCC",
+          "x": 104.14,
+          "y": 105.41,
+          "rot": 0.0,
+          "mirror": false,
+          "fields": {
+            "Footprint": "",
+            "Datasheet": "",
+            "Description": "Power symbol creates a global label with name \"VCC"
+          }
+        }
+      ],
+      "wires": [
+        {
+          "points": [
+            {
+              "x": 80.01,
+              "y": 127.0
+            },
+            {
+              "x": 88.9,
+              "y": 127.0
+            }
+          ]
+        },
+        {
+          "points": [
+            {
+              "x": 104.14,
+              "y": 113.03
+            },
+            {
+              "x": 93.98,
+              "y": 113.03
+            }
+          ]
+        },
+        {
+          "points": [
+            {
+              "x": 86.36,
+              "y": 113.03
+            },
+            {
+              "x": 80.01,
+              "y": 113.03
+            }
+          ]
+        },
+        {
+          "points": [
+            {
+              "x": 104.14,
+              "y": 105.41
+            },
+            {
+              "x": 104.14,
+              "y": 113.03
+            }
+          ]
+        },
+        {
+          "points": [
+            {
+              "x": 80.01,
+              "y": 113.03
+            },
+            {
+              "x": 80.01,
+              "y": 119.38
+            }
+          ]
+        },
+        {
+          "points": [
+            {
+              "x": 104.14,
+              "y": 129.54
+            },
+            {
+              "x": 107.95,
+              "y": 129.54
+            }
+          ]
+        },
+        {
+          "points": [
+            {
+              "x": 71.12,
+              "y": 106.68
+            },
+            {
+              "x": 71.12,
+              "y": 132.08
+            }
+          ]
+        },
+        {
+          "points": [
+            {
+              "x": 107.95,
+              "y": 129.54
+            },
+            {
+              "x": 107.95,
+              "y": 132.08
+            }
+          ]
+        },
+        {
+          "points": [
+            {
+              "x": 71.12,
+              "y": 132.08
+            },
+            {
+              "x": 88.9,
+              "y": 132.08
+            }
+          ]
+        }
+      ],
+      "netLabels": [],
+      "junctions": []
+    }
+  ],
+  "rules": {
+    "erc": {
+      "enforceUnconnectedPins": true,
+      "pinMatrix": []
+    }
+  }
+}
